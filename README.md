@@ -14,27 +14,54 @@
 Write code that prints out all the numbers from 1 to 10 as a single string.
 (Hint: the `String()` function can convert an Int to a String)
 
+```
+for i in 1...10 {
+print(String(i), terminator: " ")
+}
+```
 ***
 ## Question 2
 
 Write code that prints out all the even numbers from 5 to 51 as a single string.
-
+```
+for i in 5...51 where i % 2 == 0 {
+print(String(i), terminator: " ")
+}
+```
 ***
 ## Question 3
 
 Write code that prints out every number ending in 4 between 1 and 60 as a single string.
+```
+for i in 1...60 where i == 4 {
+for j in stride(from: i, to: 60, by: 10) {
+print(String(j), terminator: " ")
+}
+}
+```
 
 ***
 ## Question 4
 
 Print each character in the string `"Hello world!"`
 
+```
+var string = "Hello, world!"
+
+for i in string {
+print(i)
+}
+```
 ***
 ## Question 5
 
 Print out the last character in the string below.  You cannot use the Character literal "!" (i.e you must access `myStringSeven`'s characters).
 
 `let myStringSeven = "Hello world!"`
+
+```
+print(myStringSeven[myStringSeven.index(myStringSeven.endIndex, offsetBy: -2)])
+```
 
 ***
 ## Question 6
@@ -43,11 +70,19 @@ Write code that switches on a string, given the following conditions:
 - If the string's length is even, print out every character.
 - If the string's length is odd, print out every other character.
 
+```
+
+```
+
 ***
 ## Question 7
 
 Initialize a String with a character. Show that it is a Character, and not another String, that you're using to initialize it.
 
+```
+var singleCharacter = Character("a")
+print(singleCharacter)
+```
 ***
 ## Question 8
 
@@ -57,16 +92,29 @@ Build five pairs of **canonically equivalent** strings, the first of each being 
 ## Question 9
 
 **Using only Unicode**, print out `"HELLO WORLD!"`
-
+```
+var helloUni = ("\u{0022}\u{0048}\u{0045}\u{004c}\u{004c}\u{004f} \u{0057}\u{004f}\u{0052}\u{004c}\u{0044}\u{0021}\u{0022}")
+print(helloUni)
+```
 ***
 ## Question 10
 
 **Using only Unicode**, print out your name.
 
+```
+var myName = ("\u{0057}\u{0041}\u{004c}\u{004c}\u{0059} \u{0053}\u{0055}\u{0041}\u{0052}\u{0045}\u{005a}")
+print(myName)
+```
 ***
 ## Question 11
 
 **Using only Unicode**, print out `"HELLO WORLD!"` in another language.
+
+```
+var helloSpanish = ("\u{0022}\u{0048}\u{004f}\u{004c}\u{0041} \u{004d}\u{0055}\u{004e}\u{0044}\u{004f}\u{0021}\u{0022}")
+
+print(helloSpanish)
+```
 
 ***
 ## Question 12
@@ -90,7 +138,23 @@ Flower Box:
 | ⚘ | ⚘ | ⚘ | ⚘ | ⚘ |
 - - - - - - - - - - -
 ```
+```
+var flower = "\u{2698}"
+var verticalSymbol = "\u{007c}"
+var horizontalSymbol = "\u{005f}"
 
+for _ in 1...11 {
+print(horizontalSymbol, terminator: " ")
+}
+print()
+print()
+for _ in 1...7 {
+print("\(verticalSymbol) \(flower) \(verticalSymbol) \(flower) \(verticalSymbol) \(flower) \(verticalSymbol) \(flower) \(verticalSymbol) \(flower) \(verticalSymbol)")
+}
+for _ in 1...11 {
+print(horizontalSymbol, terminator: " ")
+}
+```
 ***
 ## Question 13
 
@@ -135,7 +199,9 @@ You are given a string stored in variable `aString`. Create a new string called 
 var aString = "this string has 29 characters"
 var reverse = ""
 
-// Your code here
+var aString = "this string has 29 characters"
+var reverse = String(aString.reversed())
+print(reverse)
 ```
 
 Example:
@@ -153,7 +219,14 @@ You are given a string stored in variable `aString`. Print `true` if `aString` i
 ```swift
 let aString = "anutforajaroftuna"
 
-// Your code here
+let aString = "anutforajaroftuna"
+let palindrome = String(aString.reversed())
+
+if aString == palindrome {
+print(true)
+} else {
+print(false)
+}
 ```
 
 Example 1:
@@ -178,7 +251,11 @@ You are given a string stored in variable `problem`. Write code so that you prin
 ```swift
 var problem = "split this string into words and print them on separate lines"
 
-// Your code
+var split = problem.split(separator: " ")
+
+for i in split {
+print(i)
+}
 ```
 
 Example:
